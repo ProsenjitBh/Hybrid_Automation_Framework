@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.crm.tests.ContactsPageTest">
+      <class name="com.crm.tests.LoginPageTest">
         <methods>
-          <include name="verifyCreateNewContact"/>
-          <include name="tearDown"/>
+          <include name="verifyLandingPageTitle"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.crm.tests.ContactsPageTest -->
+      </class> <!-- com.crm.tests.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

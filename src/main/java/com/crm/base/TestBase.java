@@ -1,11 +1,13 @@
 package com.crm.base;
 
 import java.io.FileInputStream;
+import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -42,6 +44,9 @@ public class TestBase {
 		if(browser.equals("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Prosenjit Bhowmick\\Downloads\\Drivers\\chromedriver.exe");
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--disable-gpu");
+			//WebDriverManager.chromedriver().forceDownload().setup();
 			driver = new ChromeDriver();
 		}
 		
@@ -59,11 +64,11 @@ public class TestBase {
 		driver = e_driver;
 		
 		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(TestUtils.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(TestUtils.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		driver.manage().deleteAllCookies();	
 		
 		driver.get(properties.getProperty("url"));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 
 }

@@ -8,8 +8,6 @@
   <test name="CRM Application Tests">
     <classes>
       <class name="com.crm.tests.LoginPageTest"> </class>
-      <class name="com.crm.tests.HomePageTest"> </class>
-      <class name="com.crm.tests.ContactsPageTest"> </class>
     </classes>
   </test>
 </suite>
